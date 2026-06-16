@@ -1,0 +1,6 @@
+{
+  "name": "Basa Logistics",
+  "description": "Expertos en logística integral desde el corazón de Guatemala. Soluciones de transporte internacional, agenciamiento aduanal, seguro de carga y rastreo en tiempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
