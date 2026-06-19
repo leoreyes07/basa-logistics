@@ -100,7 +100,6 @@ export default function App() {
         onNavigate={navigateToSection}
       />
 
-      {/* Main Sections container */}
       <main className="flex-1">
         {/* Hero Section */}
         <Hero 
@@ -108,14 +107,14 @@ export default function App() {
           onNavigateToTracking={() => navigateToSection('rastreo')}
         />
 
-        {/* Cargo Tracking Section */}
-        <TrackingSection />
+        {/* About corporate profiles */}
+        <AboutSection />
 
         {/* Services grid */}
         <ServicesSection />
 
-        {/* About corporate profiles */}
-        <AboutSection />
+        {/* Cargo Tracking Section */}
+        <TrackingSection />
 
         {/* Client trust testimonials */}
         <Testimonials />

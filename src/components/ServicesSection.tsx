@@ -27,7 +27,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="servicios" className="py-24 bg-white border-b border-slate-200">
+    <section id="servicios" className="py-24 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -58,7 +58,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-slate-50 hover:bg-white rounded-2xl border border-slate-100 hover:border-blue-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white hover:bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               id={`service-card-${service.id}`}
             >
               <div>

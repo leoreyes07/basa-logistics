@@ -1,0 +1,30 @@
+<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="110" fill="#2563eb" />
+  
+  <!-- The Outer "B" Outline with stylized curves -->
+  <path
+    d="M140 110 H270 C330 110 375 145 375 200 C375 235 355 260 325 272 C365 285 390 315 390 370 C390 430 340 460 270 460 H140 V110 Z"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="36"
+    stroke-linejoin="round"
+  />
+
+  <!-- Interior Rising Arrow from bottom-left curving to top-right of left lobe -->
+  <path
+    d="M175 410 C175 300 210 210 290 170"
+    stroke="#ffffff"
+    stroke-width="32"
+    stroke-linecap="round"
+  />
+  <path
+    d="M295 155 L305 205 L260 185 Z"
+    fill="#ffffff"
+  />
+
+  <!-- Double Mountain Peak representing the volcanoes of Guatemala -->
+  <path
+    d="M175 415 L240 310 L285 370 L340 280 L400 415 Z"
+    fill="#ffffff"
+  />
+</svg>

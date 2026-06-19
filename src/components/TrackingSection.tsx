@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { MOCK_TRACKING_ENTRIES } from '../data';
 import { TrackingData, TrackingStep } from '../types';
+import ScrollReveal from './ui/ScrollReveal';
 
 export default function TrackingSection() {
   const [searchId, setSearchId] = useState('');
@@ -59,84 +60,88 @@ export default function TrackingSection() {
   };
 
   return (
-    <section id="rastreo" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section id="rastreo" className="py-20 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Header matching layout of Image 1 */}
-        <div className="text-center mb-12">
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-[#2563eb] tracking-tight">
-            Rastreo de Carga
-          </h2>
-          <p className="font-sans text-slate-500 mt-2 max-w-xl mx-auto">
-            Siga el estado de su importación o exportación puerta a puerta en tiempo real.
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-12">
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-[#2563eb] tracking-tight">
+              Rastreo de Carga
+            </h2>
+            <p className="font-sans text-slate-500 mt-2 max-w-xl mx-auto">
+              Siga el estado de su importación o exportación puerta a puerta en tiempo real.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Search Container matching Image 1 layout style */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 md:p-8">
-            <h3 className="font-display font-bold text-slate-800 text-lg sm:text-xl mb-4 text-center sm:text-left">
-              Búsqueda de rastreo de carga
-            </h3>
-            
-            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4">
-              <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
-                <input
-                  type="text"
-                  placeholder="Ingrese número de guía o embarque (ej. BASA-MX502)"
-                  value={searchId}
-                  onChange={(e) => setSearchId(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl py-4 pl-12 pr-4 font-sans text-base text-slate-800 placeholder:text-slate-400 outline-none transition-all focus:ring-2 focus:ring-blue-100"
-                  id="tracking-search-input"
-                />
-              </div>
-              <button
-                type="submit"
-                className="cursor-pointer bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-sans font-bold text-base px-8 py-4 rounded-xl shadow-md transition-all duration-200 active:scale-95"
-                id="tracking-search-btn"
-              >
-                Rastrear
-              </button>
-            </form>
+        <ScrollReveal animation="fade-up" delay={0.2}>
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 md:p-8">
+              <h3 className="font-display font-bold text-slate-800 text-lg sm:text-xl mb-4 text-center sm:text-left">
+                Búsqueda de rastreo de carga
+              </h3>
+              
+              <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4">
+                <div className="relative flex-1">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                  <input
+                    type="text"
+                    placeholder="Ingrese número de guía o embarque (ej. BASA-MX502)"
+                    value={searchId}
+                    onChange={(e) => setSearchId(e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl py-4 pl-12 pr-4 font-sans text-base text-slate-800 placeholder:text-slate-400 outline-none transition-all focus:ring-2 focus:ring-blue-100"
+                    id="tracking-search-input"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="cursor-pointer bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-sans font-bold text-base px-8 py-4 rounded-xl shadow-md transition-all duration-200 active:scale-95"
+                  id="tracking-search-btn"
+                >
+                  Rastrear
+                </button>
+              </form>
 
-            {/* Quick Helper Samples for grading/demo purposes */}
-            <div className="mt-4 flex flex-wrap items-center gap-2.5 text-xs text-slate-500">
-              <span className="font-medium">Nuestros códigos de muestra para pruebas:</span>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => loadSampleTracking('BASA-MX502')}
-                  className="bg-blue-50 hover:bg-blue-100 text-[#2563eb] px-2.5 py-1 rounded font-mono font-bold border border-blue-100 cursor-pointer"
-                >
-                  BASA-MX502 (Marítimo - En Tránsito)
-                </button>
-                <button
-                  onClick={() => loadSampleTracking('BASA-US203')}
-                  className="bg-blue-50 hover:bg-blue-100 text-[#2563eb] px-2.5 py-1 rounded font-mono font-bold border border-blue-100 cursor-pointer"
-                >
-                  BASA-US203 (Aéreo - Entregado)
-                </button>
-                <button
-                  onClick={() => loadSampleTracking('BASA-GT101')}
-                  className="bg-blue-50 hover:bg-blue-100 text-[#2563eb] px-2.5 py-1 rounded font-mono font-bold border border-blue-100 cursor-pointer"
-                >
-                  BASA-GT101 (Terrestre - Aduanas)
-                </button>
+              {/* Quick Helper Samples for grading/demo purposes */}
+              <div className="mt-4 flex flex-wrap items-center gap-2.5 text-xs text-slate-500">
+                <span className="font-medium">Nuestros códigos de muestra para pruebas:</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => loadSampleTracking('BASA-MX502')}
+                    className="bg-blue-50 hover:bg-blue-100 text-[#2563eb] px-2.5 py-1 rounded font-mono font-bold border border-blue-100 cursor-pointer"
+                  >
+                    BASA-MX502 (Marítimo - En Tránsito)
+                  </button>
+                  <button
+                    onClick={() => loadSampleTracking('BASA-US203')}
+                    className="bg-blue-50 hover:bg-blue-100 text-[#2563eb] px-2.5 py-1 rounded font-mono font-bold border border-blue-100 cursor-pointer"
+                  >
+                    BASA-US203 (Aéreo - Entregado)
+                  </button>
+                  <button
+                    onClick={() => loadSampleTracking('BASA-GT101')}
+                    className="bg-blue-50 hover:bg-blue-100 text-[#2563eb] px-2.5 py-1 rounded font-mono font-bold border border-blue-100 cursor-pointer"
+                  >
+                    BASA-GT101 (Terrestre - Aduanas)
+                  </button>
+                </div>
               </div>
+
+              {searchError && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl flex items-center gap-3 font-sans text-sm"
+                >
+                  <AlertCircle className="shrink-0" size={18} />
+                  <span>No se encontró ningún registro para el número de guía ingresado. Verifique que corresponda al formato (ej. BASA-XXXXX).</span>
+                </motion.div>
+              )}
             </div>
-
-            {searchError && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl flex items-center gap-3 font-sans text-sm"
-              >
-                <AlertCircle className="shrink-0" size={18} />
-                <span>No se encontró ningún registro para el número de guía ingresado. Verifique que corresponda al formato (ej. BASA-XXXXX).</span>
-              </motion.div>
-            )}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Interactive Tracking Result details */}
         <AnimatePresence mode="wait">

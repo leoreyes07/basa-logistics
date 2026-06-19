@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Award, Shield, History, MapPin, CheckCircle, HelpCircle, X, ChevronRight } from 'lucide-react';
+import ScrollReveal from './ui/ScrollReveal';
 
 import officeImg from '@/assets/img/advisor_guatemala_city.webp';
 
@@ -32,71 +33,77 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text content matching Image 3 structure */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="font-sans font-bold text-blue-200 uppercase tracking-widest text-xs">
-              Nuestra Trayectoria
-            </span>
-            
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-none mb-4" id="about-title">
-              Sobre Nosotros
-            </h2>
-            
-            <p className="font-sans text-lg sm:text-xl text-blue-50 leading-relaxed font-light">
-              Desde 1895 que inició operaciones la corporación, hemos ofrecido soluciones logísticas ágiles y precisas, las cuales están diseñadas estratégicamente para adaptarse a las necesidades de cada uno de nuestros clientes.
-            </p>
+          <div className="lg:col-span-7">
+            <ScrollReveal animation="fade-right">
+              <div className="space-y-6">
+                <span className="font-sans font-bold text-blue-200 uppercase tracking-widest text-xs">
+                  Nuestra Trayectoria
+                </span>
+                
+                <h2 className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-none mb-4" id="about-title">
+                  Sobre Nosotros
+                </h2>
+                
+                <p className="font-sans text-lg sm:text-xl text-blue-50 leading-relaxed font-light">
+                  Desde 1895 que inició operaciones la corporación, hemos ofrecido soluciones logísticas ágiles y precisas, las cuales están diseñadas estratégicamente para adaptarse a las necesidades de cada uno de nuestros clientes.
+                </p>
 
-            <p className="font-sans text-sm sm:text-base text-blue-100/90 leading-relaxed">
-              Consolidamos operaciones en puertos y fronteras y garantizamos el cumplimiento legal estricto ante la SAT de Guatemala. Ofrecemos resguardo de fletes y tarifas optimizadas para fletes terrestres regionales.
-            </p>
+                <p className="font-sans text-sm sm:text-base text-blue-100/90 leading-relaxed">
+                  Consolidamos operaciones en puertos y fronteras y garantizamos el cumplimiento legal estricto ante la SAT de Guatemala. Ofrecemos resguardo de fletes y tarifas optimizadas para fletes terrestres regionales.
+                </p>
 
-            {/* Core Values Pillars Quick List */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-blue-400/30">
-              {pillars.map((pillar, idx) => (
-                <div key={idx} className="space-y-2">
-                  <div className="p-2 bg-blue-500/30 border border-blue-400/20 rounded-lg w-fit text-blue-200">
-                    {pillar.icon}
-                  </div>
-                  <h4 className="font-display font-bold text-white text-sm">{pillar.title}</h4>
-                  <p className="font-sans text-xs text-blue-100/80 leading-normal">{pillar.desc}</p>
+                {/* Core Values Pillars Quick List */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-blue-400/30">
+                  {pillars.map((pillar, idx) => (
+                    <div key={idx} className="space-y-2">
+                      <div className="p-2 bg-blue-500/30 border border-blue-400/20 rounded-lg w-fit text-blue-200">
+                        {pillar.icon}
+                      </div>
+                      <h4 className="font-display font-bold text-white text-sm">{pillar.title}</h4>
+                      <p className="font-sans text-xs text-blue-100/80 leading-normal">{pillar.desc}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Interactive button that triggers details timeline */}
-            <div className="pt-6">
-              <button
-                onClick={() => setShowMilestones(true)}
-                className="cursor-pointer bg-white hover:bg-blue-50 text-blue-600 font-sans font-bold text-sm px-6 py-3.5 rounded-xl shadow-md active:scale-95 transition-all flex items-center gap-2"
-                id="about-knowledge-more-btn"
-              >
-                Conocer más historia
-                <ChevronRight size={16} />
-              </button>
-            </div>
+                {/* Interactive button that triggers details timeline */}
+                <div className="pt-6">
+                  <button
+                    onClick={() => setShowMilestones(true)}
+                    className="cursor-pointer bg-white hover:bg-blue-50 text-blue-600 font-sans font-bold text-sm px-6 py-3.5 rounded-xl shadow-md active:scale-95 transition-all flex items-center gap-2"
+                    id="about-knowledge-more-btn"
+                  >
+                    Conocer más historia
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Right illustration Image matching Image 3 crop */}
-          <div className="lg:col-span-5 relative">
-            <div className="absolute inset-0 bg-blue-900 border-2 border-blue-400/30 rounded-3xl translate-x-3 translate-y-3 pointer-events-none" />
-            
-            <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
-              <img
-                src={officeImg}
-                alt="Basa Logistics asesores con tablet en oficina de Guatemala"
-                className="w-full h-[320px] sm:h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/60 via-transparent to-transparent" />
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0">
+            <ScrollReveal animation="fade-left">
+              <div className="absolute inset-0 bg-blue-900 border-2 border-blue-400/30 rounded-3xl translate-x-3 translate-y-3 pointer-events-none" />
               
-              {/* Floating certificate stamp badge */}
-              <div className="absolute bottom-6 right-6 bg-blue-950/90 border border-blue-500/30 backdrop-blur-md p-4 rounded-xl flex items-center gap-3">
-                <Award size={32} className="text-yellow-400 shrink-0" />
-                <div className="leading-tight">
-                  <p className="font-sans text-[11px] font-bold text-slate-300 uppercase tracking-wider">Historial SAT</p>
-                  <p className="font-display font-extrabold text-white text-xs">Aduana Confiable OEA</p>
+              <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
+                <img
+                  src={officeImg}
+                  alt="Basa Logistics asesores con tablet en oficina de Guatemala"
+                  className="w-full h-[320px] sm:h-[400px] object-cover hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/60 via-transparent to-transparent" />
+                
+                {/* Floating certificate stamp badge */}
+                <div className="absolute bottom-6 right-6 bg-blue-950/90 border border-blue-500/30 backdrop-blur-md p-4 rounded-xl flex items-center gap-3">
+                  <Award size={32} className="text-yellow-400 shrink-0" />
+                  <div className="leading-tight">
+                    <p className="font-sans text-[11px] font-bold text-slate-300 uppercase tracking-wider">Historial SAT</p>
+                    <p className="font-display font-extrabold text-white text-xs">Aduana Confiable OEA</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
         </div>
