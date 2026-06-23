@@ -1,51 +1,53 @@
 import React from 'react';
 import { Linkedin, Phone, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
-interface FooterProps {
-  onNavigate: (section: string) => void;
-}
-
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="bg-[#051128] text-slate-400 font-sans text-sm pb-24 md:pb-8 border-t border-[#122e65]/40 relative">
+    <footer className="bg-[#051128] text-slate-400 font-sans text-sm pb-24 md:pb-8 border-t border-[#122e65]/40 relative mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-[#122e65]/30">
           
           {/* Logo linkage */}
-          <Logo 
-            className="cursor-pointer" 
-            onClick={() => onNavigate('inicio')}
-          />
+          <Link to="/" className="cursor-pointer block">
+            <Logo />
+          </Link>
 
           {/* Quick Menu items centered */}
-          <nav className="flex items-center gap-6 text-sm font-medium text-slate-300">
-            <button
-              onClick={() => onNavigate('inicio')}
+          <nav className="flex flex-wrap justify-center items-center gap-6 text-sm font-medium text-slate-300">
+            <Link
+              to="/"
               className="hover:text-white transition-colors cursor-pointer"
             >
               Inicio
-            </button>
-            <button
-              onClick={() => onNavigate('nosotros')}
+            </Link>
+            <Link
+              to="/nosotros"
               className="hover:text-white transition-colors cursor-pointer"
             >
               Nosotros
-            </button>
-            <button
-              onClick={() => onNavigate('servicios')}
+            </Link>
+            <Link
+              to="/servicios"
               className="hover:text-white transition-colors cursor-pointer"
             >
               Servicios
-            </button>
-            <button
-              onClick={() => onNavigate('contacto')}
+            </Link>
+            <Link
+              to="/rastreo"
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Rastreo
+            </Link>
+            <Link
+              to="/contacto"
               className="hover:text-white transition-colors cursor-pointer"
             >
               Contacto
-            </button>
+            </Link>
           </nav>
 
           {/* LinkedIn on right */}

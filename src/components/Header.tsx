@@ -1,57 +1,54 @@
 import React, { useState } from 'react';
 import { Menu, X, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo';
 
 interface HeaderProps {
   onOpenQuoteModal: () => void;
-  activeSection: string;
-  onNavigate: (section: string) => void;
 }
 
-export default function Header({ onOpenQuoteModal, activeSection, onNavigate }: HeaderProps) {
+export default function Header({ onOpenQuoteModal }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
     { name: 'Nosotros', id: 'nosotros' },
     { name: 'Servicios', id: 'servicios' },
+    { name: 'Rastreo', id: 'rastreo' },
     { name: 'Contacto', id: 'contacto' },
   ];
 
-  const handleItemClick = (id: string) => {
-    onNavigate(id);
-    setIsOpen(false);
-  };
+  const handleCloseMenu = () => setIsOpen(false);
 
   return (
     <header className="sticky top-0 z-40 bg-[#06183a] text-white border-b border-[#122e65]/50 backdrop-blur-md shadow-xl transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand logo linked to top */}
-        <Logo 
-          className="cursor-pointer" 
-          onClick={() => handleItemClick('inicio')}
-        />
+        <Link to="/" onClick={handleCloseMenu} className="cursor-pointer block">
+          <Logo />
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 font-sans font-medium text-sm text-slate-300">
-          <button
-            onClick={() => handleItemClick('inicio')}
-            className={`transition-colors duration-200 cursor-pointer ${
-              activeSection === 'inicio' ? 'text-white font-semibold underline underline-offset-8 decoration-blue-500 decoration-2' : 'hover:text-white'
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => `transition-colors duration-200 cursor-pointer ${
+              isActive ? 'text-white font-semibold underline underline-offset-8 decoration-blue-500 decoration-2' : 'hover:text-white'
             }`}
           >
             Inicio
-          </button>
+          </NavLink>
           {menuItems.map((item) => (
-            <button
+            <NavLink
               key={item.id}
-              onClick={() => handleItemClick(item.id)}
-              className={`transition-colors duration-200 cursor-pointer ${
-                activeSection === item.id ? 'text-white font-semibold underline underline-offset-8 decoration-blue-500 decoration-2' : 'hover:text-white'
+              to={`/${item.id}`}
+              className={({ isActive }) => `transition-colors duration-200 cursor-pointer ${
+                isActive ? 'text-white font-semibold underline underline-offset-8 decoration-blue-500 decoration-2' : 'hover:text-white'
               }`}
             >
               {item.name}
-            </button>
+            </NavLink>
           ))}
         </nav>
 
@@ -103,7 +100,7 @@ export default function Header({ onOpenQuoteModal, activeSection, onNavigate }: 
               animate={{ opacity: 0.6 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black z-40 md:hidden"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             />
             
             {/* Mobile Drawer Menu */}
@@ -117,7 +114,7 @@ export default function Header({ onOpenQuoteModal, activeSection, onNavigate }: 
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#122e65]/60">
                 <Logo iconOnly light />
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleCloseMenu}
                   className="p-1.5 text-slate-300 hover:text-white rounded-md bg-[#122e65]/40 hover:bg-[#122e65]/80 transition-colors"
                 >
                   <X size={20} />
@@ -125,31 +122,34 @@ export default function Header({ onOpenQuoteModal, activeSection, onNavigate }: 
               </div>
 
               <div className="flex flex-col gap-6">
-                <button
-                  onClick={() => handleItemClick('inicio')}
-                  className={`text-left font-display text-lg py-1 border-b border-transparent ${
-                    activeSection === 'inicio' ? 'text-blue-400 font-semibold border-blue-500' : 'text-slate-300'
+                <NavLink
+                  to="/"
+                  end
+                  onClick={handleCloseMenu}
+                  className={({ isActive }) => `text-left font-display text-lg py-1 border-b border-transparent ${
+                    isActive ? 'text-blue-400 font-semibold border-blue-500' : 'text-slate-300'
                   }`}
                 >
                   Inicio
-                </button>
+                </NavLink>
                 {menuItems.map((item) => (
-                  <button
+                  <NavLink
                     key={item.id}
-                    onClick={() => handleItemClick(item.id)}
-                    className={`text-left font-display text-lg py-1 border-b border-transparent ${
-                      activeSection === item.id ? 'text-blue-400 font-semibold border-blue-500' : 'text-slate-300'
+                    to={`/${item.id}`}
+                    onClick={handleCloseMenu}
+                    className={({ isActive }) => `text-left font-display text-lg py-1 border-b border-transparent ${
+                      isActive ? 'text-blue-400 font-semibold border-blue-500' : 'text-slate-300'
                     }`}
                   >
                     {item.name}
-                  </button>
+                  </NavLink>
                 ))}
               </div>
 
               <div className="mt-auto pt-8 border-t border-[#122e65]/60 flex flex-col gap-4">
                 <button
                   onClick={() => {
-                    setIsOpen(false);
+                    handleCloseMenu();
                     onOpenQuoteModal();
                   }}
                   className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-sans font-semibold py-3 px-4 rounded-lg shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95"
