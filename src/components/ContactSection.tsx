@@ -253,10 +253,10 @@ export default function ContactSection() {
                         {OFFICE_INFO.phone} (PBX)
                       </a>
                       <a 
-                        href="tel:+13102567775" 
+                        href="tel:+0005559876" 
                         className="font-sans text-sm text-slate-400 font-semibold hover:text-blue-600 block transition-all"
                       >
-                        +1 (310) 256-7775 (Asistencia Intl.)
+                        +000 555-9876 (Asistencia Intl.)
                       </a>
                     </div>
                   </div>
@@ -284,12 +284,12 @@ export default function ContactSection() {
               {/* Google Maps Style Top Bar overlay shown in Image 1 */}
               <div className="absolute top-3 left-3 right-3 bg-white border border-slate-100 rounded-xl p-3 flex items-center justify-between shadow-lg z-10">
                 <div className="leading-tight">
-                  <h4 className="font-display font-extrabold text-[#06183a] text-xs">Basa Logistics</h4>
-                  <p className="text-[10px] text-slate-400 font-sans mt-0.5">Diagonal 6, Zona 10, Las Margaritas</p>
+                  <h4 className="font-display font-extrabold text-[#06183a] text-xs">Logística Demo</h4>
+                  <p className="text-[10px] text-slate-400 font-sans mt-0.5">Avenida Siempreviva 742, Nivel 5</p>
                 </div>
                 <div className="flex gap-1">
                   <a 
-                    href="https://www.google.com/maps/dir/?api=1&destination=Diagonal+6,+Edificio+Las+Margaritas,+Ciudad+de+Guatemala"
+                    href="https://www.google.com/maps"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-1.5 rounded-lg text-[10px] font-sans font-bold shadow-md transition-all flex items-center gap-1"

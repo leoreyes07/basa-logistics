@@ -82,11 +82,11 @@ export const SERVICES_DATA: ServiceItem[] = [
 ];
 
 export const OFFICE_INFO: OfficeLocation = {
-  name: 'Oficinas Centrales Basa Logistics',
-  address: 'Diagonal 6, 10-01 Zona 10, Edificio Las Margaritas, Torre II, Nivel 7, Ciudad de Guatemala, Guatemala 01010',
-  phone: '+502 2200-4700',
-  email: 'aracelly@basalogistics.com',
-  hours: 'Lunes a Viernes: 8:00 AM - 6:00 PM | Sábado: 8:00 AM - 12:00 PM'
+  name: 'Oficinas Centrales Logística Demo',
+  address: 'Avenida Siempreviva 742, Edificio Central, Nivel 5, Ciudad Metropolitana, País 12345',
+  phone: '+000 555-1234',
+  email: 'info@logistica-demo.com',
+  hours: 'Lunes a Viernes: 9:00 AM - 5:00 PM'
 };
 
 export const TESTIMONIALS_DATA = [
