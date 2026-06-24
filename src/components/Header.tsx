@@ -21,8 +21,9 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
   const handleCloseMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#06183a] text-white border-b border-[#122e65]/50 backdrop-blur-md shadow-xl transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <>
+      <header className="sticky top-0 z-40 bg-slate-950/95 text-white border-b border-slate-800/80 backdrop-blur-md shadow-xl transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand logo linked to top */}
         <Link to="/" onClick={handleCloseMenu} className="cursor-pointer block">
           <Logo />
@@ -90,6 +91,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Mobile Slider / Drawer Backdrop */}
       <AnimatePresence>
@@ -109,9 +111,9 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[280px] bg-[#071329] text-white shadow-2xl z-50 md:hidden flex flex-col p-6 border-l border-[#122e65]"
+              className="fixed top-0 right-0 h-full w-[280px] bg-slate-950 text-white shadow-2xl z-50 md:hidden flex flex-col p-6 border-l border-slate-800"
             >
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#122e65]/60">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
                 <Logo iconOnly light />
                 <button
                   onClick={handleCloseMenu}
@@ -173,6 +175,6 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

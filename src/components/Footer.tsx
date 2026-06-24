@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Phone, MessageCircle } from 'lucide-react';
+import { Linkedin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -80,25 +80,14 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Floating Bottom Navigation CTA Bar for mobile viewports matching Image 2 */}
-      <div className="fixed bottom-0 inset-x-0 z-30 md:hidden bg-slate-900/90 backdrop-blur-md border-t border-slate-800 p-3.5 flex items-center justify-between gap-3 shadow-2xl">
-        <a
-          href="https://wa.me/50222004700?text=Hola%20Basa%20Logistics,%20solicito%20información%20sobre%20un%20flete"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 bg-[#25d366] hover:bg-[#20ba5a] text-white font-sans font-bold text-xs py-3 px-3.5 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-transform active:scale-95"
-          id="mobile-btn-whatsapp"
-        >
-          <MessageCircle size={15} className="fill-current" />
-          Contactar por WhatsApp
-        </a>
-
+      {/* Floating Bottom Navigation CTA Bar for mobile viewports */}
+      <div className="fixed bottom-0 inset-x-0 z-30 md:hidden bg-slate-900/90 backdrop-blur-md border-t border-slate-800 p-3.5 flex items-center justify-center shadow-2xl">
         <a
           href="tel:+50222004700"
-          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-sans font-bold text-xs py-3 px-3.5 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-transform active:scale-95"
+          className="w-full max-w-md bg-blue-600 hover:bg-blue-700 text-white font-sans font-bold text-sm py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95 mx-auto"
           id="mobile-btn-phone"
         >
-          <Phone size={14} />
+          <Phone size={16} />
           Llamar Ahora
         </a>
       </div>

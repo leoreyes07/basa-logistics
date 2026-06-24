@@ -10,17 +10,16 @@ export default function AboutSection() {
 
 
   const milestones = [
-    { year: '1895', title: 'Fundación Corporativa', desc: 'Iniciamos operaciones aduanales como pioneros en el intercambio comercial de Guatemala.' },
-    { year: '1940', title: 'Transporte Fluvial y Marítimo', desc: 'Ampliamos cobertura conectando puertos del Atlántico y Pacífico guatemaltecos.' },
-    { year: '1975', title: 'Distribución Multimodal', desc: 'Lanzamos el servicio de transporte terrestre regional para todo el istmo de Centroamérica.' },
-    { year: '2005', title: 'Tecnología Aplicada', desc: 'Implementación de rastreo satelital GPS 24/7 y sistemas electrónicos de despacho rápido.' },
-    { year: '2026', title: 'Logística Integral 360°', desc: 'Certificados bajo estándares internacionales ISO para manejo de carga crítica y de alta complejidad.' }
+    { year: '1995', title: 'Fundación Corporativa', desc: 'Iniciamos operaciones ofreciendo soluciones logísticas ágiles y precisas en Guatemala.' },
+    { year: '2005', title: 'Distribución Multimodal', desc: 'Ampliamos el servicio de transporte terrestre regional e internacional.' },
+    { year: '2015', title: 'Red Global', desc: 'Consolidación de nuestra red global de proveedores y presencia en aduanas.' },
+    { year: '2026', title: 'Experiencia Comprobada', desc: 'Celebramos más de 30 años transportando cargas exitosamente a nivel mundial.' }
   ];
 
   const pillars = [
-    { icon: <Shield className="w-5 h-5" />, title: 'Seguridad Certificada', desc: 'Monitoreo constante, marchamos electrónicos SAT y custodia armada.' },
-    { icon: <History className="w-5 h-5" />, title: 'Experiencia Centenaria', desc: 'Más de 130 años sirviendo al comercio exterior nacional.' },
-    { icon: <Award className="w-5 h-5" />, title: 'Eficiencia de Procesos', desc: 'Despacho aduanal express minimizando cargos por demora.' }
+    { icon: <Shield className="w-5 h-5" />, title: 'Presencia Total', desc: 'Presencia en todas las aduanas de Guatemala y red global de proveedores.' },
+    { icon: <History className="w-5 h-5" />, title: 'Experiencia Comprobada', desc: 'Más de 30 años conectando tu carga con el mundo exitosamente.' },
+    { icon: <Award className="w-5 h-5" />, title: 'Atención Personalizada', desc: 'Respuesta rápida y asesoría experta sin complicaciones.' }
   ];
 
   return (
@@ -41,15 +40,15 @@ export default function AboutSection() {
                 </span>
                 
                 <h2 className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-none mb-4" id="about-title">
-                  Sobre Nosotros
+                  Nuestra Historia
                 </h2>
                 
                 <p className="font-sans text-lg sm:text-xl text-blue-50 leading-relaxed font-light">
-                  Desde 1895 que inició operaciones la corporación, hemos ofrecido soluciones logísticas ágiles y precisas, las cuales están diseñadas estratégicamente para adaptarse a las necesidades de cada uno de nuestros clientes.
+                  Desde 1995 que inició operaciones la corporación, hemos ofrecido soluciones logísticas ágiles y precisas, las cuales están diseñadas estratégicamente para adaptarse a las necesidades de cada uno de nuestros clientes.
                 </p>
 
                 <p className="font-sans text-sm sm:text-base text-blue-100/90 leading-relaxed">
-                  Consolidamos operaciones en puertos y fronteras y garantizamos el cumplimiento legal estricto ante la SAT de Guatemala. Ofrecemos resguardo de fletes y tarifas optimizadas para fletes terrestres regionales.
+                  Contamos con una red global de proveedores, presencia en todas las aduanas de Guatemala, y brindamos una respuesta rápida y atención personalizada.
                 </p>
 
                 {/* Core Values Pillars Quick List */}
@@ -135,7 +134,7 @@ export default function AboutSection() {
                   </div>
                   <div>
                     <h3 className="font-display font-extrabold text-xl text-slate-900">Nuestra Línea de Tiempo</h3>
-                    <p className="text-xs text-slate-400 font-sans mt-0.5">La evolución comercial de Basa Logistics desde 1895</p>
+                    <p className="text-xs text-slate-400 font-sans mt-0.5">La evolución comercial de Basa Logistics desde 1995</p>
                   </div>
                 </div>
                 <button

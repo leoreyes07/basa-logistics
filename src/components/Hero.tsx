@@ -44,7 +44,7 @@ export default function Hero({ onOpenQuoteModal, onNavigateToTracking }: HeroPro
             Líderes logísticos en Centroamérica
           </motion.div>
 
-          {/* Title - "Expertos en logística integral desde el corazón de Guatemala" */}
+          {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,9 +52,9 @@ export default function Hero({ onOpenQuoteModal, onNavigateToTracking }: HeroPro
             className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.1] mb-6"
             id="hero-title"
           >
-            Expertos en logística integral desde el corazón de{' '}
+            30 años conectando tu carga con el{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 font-extrabold">
-              Guatemala
+              mundo
             </span>
           </motion.h1>
 
@@ -65,7 +65,7 @@ export default function Hero({ onOpenQuoteModal, onNavigateToTracking }: HeroPro
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-sans text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mb-10"
           >
-            Transporte internacional, gestión aduanal con solidez legal y logística integrada para conectar tu negocio de forma inteligente, segura y sin complicaciones.
+            Transporte, aduanas y logística integral sin complicaciones.
           </motion.p>
 
           {/* Call-to-Actions */}

@@ -56,14 +56,14 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'seguro',
     title: 'Seguro de Carga',
-    description: 'Su mercancía está protegida en todo momento con una cobertura "Todo Riesgo" y el beneficio del deducible más bajo.',
+    description: 'Su mercancía está protegida en todo momento, teniendo el beneficio del cero deducible.',
     fullDetails: 'Proteja sus inversiones contra imprevistos en ruta, siniestros, robos o pérdidas por averías. Emitimos pólizas de seguro internacionales directamente, con una cobertura robusta de puerta a puerta.',
     iconName: 'shield-check',
     features: [
       'Pólizas con cobertura internacional "Todo Riesgo" (All Risk)',
       'Emisión de póliza inmediata para carga aérea, marítima y de carretera',
       'Gestión de reclamos acelerada con liquidaciones justas y ágiles',
-      'Deducibles optimizados, con opción a cero deducible para rutas específicas'
+      'Beneficio exclusivo de cero deducible para proteger su inversión al máximo'
     ]
   },
   {
@@ -85,7 +85,7 @@ export const OFFICE_INFO: OfficeLocation = {
   name: 'Oficinas Centrales Basa Logistics',
   address: 'Diagonal 6, 10-01 Zona 10, Edificio Las Margaritas, Torre II, Nivel 7, Ciudad de Guatemala, Guatemala 01010',
   phone: '+502 2200-4700',
-  email: 'contacto@basalogistics.com',
+  email: 'aracelly@basalogistics.com',
   hours: 'Lunes a Viernes: 8:00 AM - 6:00 PM | Sábado: 8:00 AM - 12:00 PM'
 };
 
