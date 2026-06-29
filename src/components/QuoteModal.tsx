@@ -28,6 +28,8 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
 
   const [calcResult, setCalcResult] = useState<QuoteEstimationResult | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [quoteNumber, setQuoteNumber] = useState('');
 
   const calculateQuote = () => {
@@ -85,13 +87,45 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     setFormData((prev) => ({ ...prev, [name]: Math.max(0, val) }));
   };
 
-  const submitFinalQuote = (e: React.FormEvent) => {
+  const submitFinalQuote = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
     
-    // Simulate API request submission
     const trackingDigits = Math.floor(10000 + Math.random() * 90000);
-    setQuoteNumber(`BASA-QT-${trackingDigits}`);
-    setSubmitted(true);
+    const generatedQuoteNumber = `BASA-QT-${trackingDigits}`;
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          // TODO: Agrega tu Access Key de Web3Forms en el archivo .env
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'TU_ACCESS_KEY_AQUI',
+          subject: `Nueva Solicitud de Cotización: ${generatedQuoteNumber}`,
+          from_name: formData.contactName,
+          email: formData.contactEmail,
+          ...formData,
+          ...calcResult,
+          quoteNumber: generatedQuoteNumber
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error del servidor al procesar la cotización');
+      }
+      
+      setQuoteNumber(generatedQuoteNumber);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setSubmitError('Hubo un error de conexión. Por favor intente nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCloseAndReset = () => {
@@ -112,6 +146,8 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
       });
       setCalcResult(null);
       setSubmitted(false);
+      setIsSubmitting(false);
+      setSubmitError('');
       setQuoteNumber('');
     }, 400);
   };
@@ -212,7 +248,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                           <button
                             key={mode.value}
                             type="button"
-                            onClick={() => setFormData(prev => ({ ...prev, serviceType: mode.value as any }))}
+                            onClick={() => setFormData(prev => ({ ...prev, serviceType: mode.value as QuoteFormState['serviceType'] }))}
                             className={`p-4 rounded-xl border flex flex-col items-center justify-center text-center gap-1.5 transition-all cursor-pointer ${
                               formData.serviceType === mode.value 
                                 ? 'bg-blue-50/50 border-blue-400 text-blue-600 shadow-sm' 
@@ -454,14 +490,17 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                     Siguiente Paso <ArrowRight size={16} />
                   </button>
                 ) : (
-                  <button
-                    onClick={submitFinalQuote}
-                    disabled={!formData.contactName.trim() || !formData.contactEmail.trim() || !formData.contactPhone?.trim()}
-                    className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-sans font-bold text-sm px-6 py-2.5 rounded-xl shadow-md active:scale-95 disabled:opacity-50 flex items-center gap-1.5"
-                    id="submit-quote-btn"
-                  >
-                    Confirmar y Agendar <Check size={16} />
-                  </button>
+                  <div className="flex flex-col items-end gap-2">
+                    {submitError && <span className="text-red-500 font-sans text-xs font-semibold">{submitError}</span>}
+                    <button
+                      onClick={submitFinalQuote}
+                      disabled={!formData.contactName.trim() || !formData.contactEmail.trim() || !formData.contactPhone?.trim() || isSubmitting}
+                      className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-sans font-bold text-sm px-6 py-2.5 rounded-xl shadow-md active:scale-95 disabled:opacity-50 flex items-center gap-1.5"
+                      id="submit-quote-btn"
+                    >
+                      {isSubmitting ? 'Enviando...' : 'Confirmar y Agendar'} {!isSubmitting && <Check size={16} />}
+                    </button>
+                  </div>
                 )}
               </div>
 

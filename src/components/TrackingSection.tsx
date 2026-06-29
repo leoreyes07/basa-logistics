@@ -272,7 +272,7 @@ export default function TrackingSection() {
                   </h5>
 
                   <div className="relative pl-6 sm:pl-8 border-l-2 border-slate-200 ml-4 space-y-8 py-2">
-                    {activeTracking.history.map((step, idx) => (
+                    {activeTracking.history.map((step: TrackingStep, idx: number) => (
                       <div key={idx} className="relative">
                         
                         {/* Bullet with appropriate icon representing step state */}

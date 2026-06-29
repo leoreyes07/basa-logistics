@@ -21,7 +21,7 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Simple verification
@@ -33,21 +33,44 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
     
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({
-        nombre: '',
-        email: '',
-        telefono: '',
-        asunto: '',
-        mensaje: ''
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          // TODO: Agrega tu Access Key de Web3Forms en el archivo .env
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'TU_ACCESS_KEY_AQUI',
+          subject: `Nuevo contacto desde la web: ${formData.asunto || 'Sin asunto'}`,
+          from_name: formData.nombre,
+          ...formData
+        })
       });
-      
-      // Hide success banner after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setFormData({
+          nombre: '',
+          email: '',
+          telefono: '',
+          asunto: '',
+          mensaje: ''
+        });
+        
+        // Hide success banner after 5 seconds
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        throw new Error('Error en la respuesta del servidor');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      setShowErrorAlert(true);
+      setTimeout(() => setShowErrorAlert(false), 4000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
